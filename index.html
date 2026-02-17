@@ -1,132 +1,756 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha Priya | Visual Storyteller</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        :root {
+            --bg-deep: #050505;
+        }
+        
+        body {
+            background-color: var(--bg-deep);
+            color: #f4f4f4;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .serif { font-family: 'Instrument Serif', serif; }
+
+        /* Custom Cinematic Transitions */
+        .section-padding { @apply py-24 px-6 md:px-16 lg:px-24; }
+        
+        /* DaisyUI Overrides for a cleaner look */
+        .btn { border-radius: 0px; text-transform: uppercase; letter-spacing: 0.1em; }
+        
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 overflow-x-hidden">
+<body>
 
-    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
-        <div class="text-xl font-bold tracking-tighter uppercase">AP <span class="text-blue-500">.</span></div>
-        <div class="space-x-6 text-sm font-medium uppercase tracking-widest">
-            <a href="#about" class="hover:text-blue-400 transition">About</a>
-            <a href="#education" class="hover:text-blue-400 transition italic">#Education</a>
-            <a href="#internships" class="hover:text-blue-400 transition italic">#Internships</a>
-            <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-        </div>
-    </nav>
-
-    <section id="about" class="min-h-screen flex items-center justify-center px-6 relative pt-20">
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse"></div>
-        </div>
-        
-        <div class="text-center z-10" data-aos="fade-up">
-            <h2 class="text-blue-400 font-semibold tracking-widest mb-4 uppercase">Visual Storyteller & Documentarian</h2>
-            <h1 class="serif text-6xl md:text-8xl mb-6">Akanksha Priya</h1>
-            <p class="max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed mb-8">
-                Media and communication graduate specializing in <span class="text-slate-100">videography</span>, 
-                <span class="text-slate-100">field-based visual documentation</span>, and the art of 
-                observational storytelling.
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="mailto:akankshap.mmmc.2023.ipcw@gmail.com" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-blue-400 transition">Hire Me</a>
-                <a href="#projects" class="border border-slate-700 px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition">View Works</a>
+    <header class="fixed top-0 w-full z-[100] nav-glass">
+        <div class="navbar max-w-7xl mx-auto px-4">
+            <div class="flex-1">
+                <a class="text-xl font-bold tracking-tighter uppercase">AP <span class="text-zinc-500">/ 2026</span></a>
+            </div>
+            <div class="flex-none hidden lg:block">
+                <ul class="menu menu-horizontal px-1 gap-8 text-[10px] uppercase tracking-widest font-bold">
+                    <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+                    <li><a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a></li>
+                    <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                    <li><a href="#awards" class="hover:text-primary transition-colors">Awards</a></li>
+                    <li><a href="#contact" class="btn btn-outline btn-sm px-6">Hire Me</a></li>
+                </ul>
+            </div>
+            <div class="flex-none lg:hidden">
+                <div class="dropdown dropdown-end">
+                    <button tabindex="0" class="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </button>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 uppercase text-[10px] tracking-widest">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="education" class="py-24 px-6 max-w-5xl mx-auto">
-        <h2 class="serif text-4xl mb-12" data-aos="fade-right">#Education</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass p-8 rounded-2xl" data-aos="zoom-in-up">
-                <span class="text-blue-400 font-mono">Present</span>
-                <h3 class="text-xl font-bold mt-2">B.A. (Hons) Multimedia & Mass Communication</h3>
-                <p class="text-slate-400">Indraprastha College for Women (DU)</p>
-                <p class="mt-4 text-sm bg-blue-500/10 text-blue-400 inline-block px-3 py-1 rounded">8.59 CGPA (Till 2nd Year)</p>
+    <main>
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute top-20 left-10 opacity-5 pointer-events-none select-none">
+        <h2 class="text-[25vw] font-bold uppercase leading-none text-outline">REEL</h2>
+    </div>
+
+    <div class="container mx-auto px-6 md:px-16 z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="flex-[1.2]" data-aos="fade-right">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-12 h-[1px] bg-primary"></span>
+                    <span class="uppercase tracking-[0.4em] text-[10px] font-bold text-primary">Visual Documentarian</span>
+                </div>
+
+                <h1 class="serif text-7xl md:text-[9rem] italic leading-[0.8] mb-8 text-white">
+                    Akanksha <br> 
+                    <span class="md:ml-32 not-italic font-light tracking-tighter">Priya</span>
+                </h1>
+
+                <p class="max-w-xl text-zinc-400 text-lg md:text-xl font-light leading-relaxed mb-10">
+                    Documenting the raw intersection of <span class="text-white">social development</span> and <span class="text-white italic">nature</span>. Final year Multimedia student at IPCW, specializing in field videography.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <button class="btn btn-primary px-10 h-14" onclick="cv_modal.showModal()">Quick CV</button>
+                    <a href="#portfolio" class="btn btn-ghost h-14 px-8 border border-white/10 hover:bg-white hover:text-black transition-all duration-500">View Projects</a>
+                </div>
+
+                <div class="mt-16 flex gap-8 border-t border-white/5 pt-8">
+                    <div>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-1">Location</p>
+                        <p class="text-xs uppercase font-medium">New Delhi, IN</p>
+                    </div>
+                    <div>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-1">Status</p>
+                        <p class="text-xs uppercase font-medium text-primary">Open for Projects</p>
+                    </div>
+                </div>
             </div>
-            <div class="glass p-8 rounded-2xl" data-aos="zoom-in-up" data-aos-delay="100">
-                <span class="text-slate-500 font-mono">2023</span>
-                <h3 class="text-xl font-bold mt-2">CBSE (Science) - Class 12th</h3>
-                <p class="text-slate-400">Mother Teresa Academy</p>
-                <p class="mt-4 text-sm bg-slate-500/10 text-slate-400 inline-block px-3 py-1 rounded">75% Score</p>
+
+            <div class="flex-1 w-full relative" data-aos="zoom-in" data-aos-delay="300">
+                <div class="relative group max-w-md mx-auto lg:max-w-none">
+                    
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-primary/30 to-transparent blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    
+                    <div class="relative aspect-[3/4] bg-zinc-900 border border-white/20 overflow-hidden shadow-2xl">
+                        
+                        <img src="https://images.unsplash.com/photo-1492691523567-30730028ad14?auto=format&fit=crop&q=80&w=800" 
+                             alt="Professional Visual" 
+                             class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+
+                        <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%]"></div>
+
+                        <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-white/60"></div>
+                        <div class="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 border-white/60"></div>
+                        <div class="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-white/60"></div>
+                        <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-white/60"></div>
+
+                        <div class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                                <span class="text-[10px] font-bold tracking-[0.2em] text-white">REC</span>
+                            </div>
+                            <div class="h-3 w-[1px] bg-white/20"></div>
+                            <span class="text-[10px] font-mono text-white/80 tracking-widest">4K RAW</span>
+                        </div>
+
+                        <div class="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+                            <div class="text-[8px] font-mono text-white/40 vertical-rl uppercase tracking-widest">ISO 400</div>
+                            <div class="text-[8px] font-mono text-white/40 vertical-rl uppercase tracking-widest">F 2.8</div>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <p class="text-[9px] tracking-[0.3em] text-primary mb-1 uppercase font-bold">TC 00:23:11:2005</p>
+                                    <h3 class="font-bold text-white text-lg tracking-tight uppercase">Visual Archives <span class="font-light opacity-50">/ 2026</span></h3>
+                                </div>
+                                <div class="flex items-center gap-1 border border-white/30 px-1 py-0.5 rounded-sm">
+                                    <div class="w-4 h-2 bg-primary/80"></div>
+                                    <div class="w-1 h-1 bg-white/30"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<dialog id="cv_modal" class="modal">
+  <div class="modal-box bg-zinc-950 border border-white/10 max-w-2xl p-0 overflow-hidden rounded-none">
+    <div class="flex flex-col md:flex-row">
+        <div class="bg-primary p-8 md:w-1/3 text-black">
+            <h4 class="font-bold text-2xl mb-4 leading-none uppercase">Akanksha <br> Priya</h4>
+            <div class="space-y-4 mt-8">
+                <div>
+                    <p class="text-[8px] uppercase font-black tracking-tighter opacity-60">Phone</p>
+                    <p class="text-xs font-bold">+91 8540916141</p>
+                </div>
+                <div>
+                    <p class="text-[8px] uppercase font-black tracking-tighter opacity-60">Email</p>
+                    <p class="text-[10px] font-bold break-all leading-tight">akankshap.mmmc.2023.ipcw@gmail.com</p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section id="internships" class="py-24 bg-slate-900/50">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="serif text-4xl mb-12 text-right" data-aos="fade-left">#Internships</h2>
+        <div class="p-8 md:w-2/3">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <h5 class="text-primary text-[10px] font-bold uppercase tracking-widest mb-4">Educational Summary</h5>
             <div class="space-y-6">
-                <div class="glass p-8 rounded-2xl flex flex-col md:flex-row gap-6 border-l-4 border-blue-500" data-aos="fade-up">
-                    <div class="md:w-1/4">
-                        <p class="font-bold">June – July 2025</p>
-                        <p class="text-blue-400">Media Intern</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <h4 class="text-xl font-bold">New Delhi Nature Society (NDNS)</h4>
-                        <p class="text-slate-400 mt-2">Focused on environmental awareness, creating short videos, podcasts, and documenting nature conservation outreach.</p>
-                    </div>
+                <div>
+                    <h6 class="text-white font-bold text-sm">B.A. (Hons) Multimedia & Mass Communication</h6>
+                    <p class="text-xs text-zinc-400">IPCW, University of Delhi | 8.59 CGPA</p>
                 </div>
-                <div class="glass p-8 rounded-2xl flex flex-col md:flex-row gap-6 border-l-4 border-purple-500" data-aos="fade-up">
-                    <div class="md:w-1/4">
-                        <p class="font-bold">Feb – Mar 2024</p>
-                        <p class="text-purple-400">Photography</p>
-                    </div>
-                    <div class="md:w-3/4">
-                        <h4 class="text-xl font-bold">Samarth Bharat Project</h4>
-                        <p class="text-slate-400 mt-2">Field photography for annual reports, capturing on-ground social development initiatives and community work.</p>
+                <div>
+                    <h6 class="text-white font-bold text-sm">CBSE Science (Class XII)</h6>
+                    <p class="text-xs text-zinc-400">Mother Teresa Academy | 75%</p>
+                </div>
+                <div class="divider before:bg-white/5 after:bg-white/5"></div>
+                <div>
+                    <h5 class="text-primary text-[10px] font-bold uppercase tracking-widest mb-2">Core Arsenal</h5>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="badge badge-outline text-[9px] rounded-none">Premiere Pro</span>
+                        <span class="badge badge-outline text-[9px] rounded-none">Field Videography</span>
+                        <span class="badge badge-outline text-[9px] rounded-none">After Effects</span>
+                        <span class="badge badge-outline text-[9px] rounded-none">Visual Storytelling</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+  </div>
+</dialog>>
 
-    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="serif text-4xl mb-12 text-center" data-aos="fade-up">Selected Works</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="group relative overflow-hidden rounded-xl bg-slate-800 aspect-video" data-aos="zoom-in">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10 opacity-80"></div>
-                <div class="absolute bottom-4 left-4 z-20">
-                    <h5 class="font-bold">KHEL</h5>
-                    <p class="text-xs text-slate-300">Short Film • Director</p>
+<section id="about" class="section-padding bg-zinc-950 relative overflow-hidden">
+    <div class="absolute left-6 md:left-12 top-0 h-full w-[1px] bg-white/5"></div>
+
+    <div class="container mx-auto max-w-6xl relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-4" data-aos="fade-up">
+                <h2 class="serif text-5xl md:text-6xl italic text-white leading-none">The <br>Perspective.</h2>
+                <div class="mt-8 flex items-center gap-4">
+                    <div class="avatar-group -space-x-6 rtl:space-x-reverse">
+                        <div class="avatar border-zinc-900">
+                            <div class="w-12 bg-primary text-black flex items-center justify-center font-bold text-xs uppercase">Obs</div>
+                        </div>
+                        <div class="avatar border-zinc-900">
+                            <div class="w-12 bg-zinc-800 text-white flex items-center justify-center font-bold text-xs uppercase">Doc</div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Field-Based <br>Methodology</p>
                 </div>
             </div>
-            <div class="group relative overflow-hidden rounded-xl bg-slate-800 aspect-video" data-aos="zoom-in" data-aos-delay="100">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10 opacity-80"></div>
-                <div class="absolute bottom-4 left-4 z-20">
-                    <h5 class="font-bold">Itihas Express</h5>
-                    <p class="text-xs text-slate-300">Radio Podcast • Producer</p>
+
+            <div class="lg:col-span-8">
+                <div class="space-y-8" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-2xl md:text-3xl font-light text-zinc-300 leading-relaxed">
+                        "I specialize in <span class="text-white font-medium italic">visual documentation</span>, producing narratives that bridge the gap between raw reality and cinematic storytelling."
+                    </p>
+                    
+                    <p class="text-zinc-500 leading-relaxed max-w-2xl">
+                        As a final-year graduate, my work is rooted in observational filming—capturing unscripted moments that define our cultural and environmental landscapes. From documenting butterfly transformations to the historical echoes of archaeological parks, my lens focuses on the details that often go unnoticed.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+                        <div class="stats bg-zinc-900 border border-white/5 rounded-none shadow-xl">
+                            <div class="stat p-6">
+                                <div class="stat-title text-[10px] uppercase tracking-widest text-primary font-bold">Primary Tool</div>
+                                <div class="stat-value text-2xl text-white mt-2">Visuals</div>
+                                <div class="stat-desc text-zinc-500 mt-1 italic">Videography & Field Doc.</div>
+                            </div>
+                        </div>
+
+                        <div class="stats bg-zinc-900 border border-white/5 rounded-none shadow-xl">
+                            <div class="stat p-6">
+                                <div class="stat-title text-[10px] uppercase tracking-widest text-primary font-bold">Medium</div>
+                                <div class="stat-value text-2xl text-white mt-2">Narrative</div>
+                                <div class="stat-desc text-zinc-500 mt-1 italic">Short Films & Podcasts</div>
+                            </div>
+                        </div>
+
+                        <div class="stats bg-zinc-900 border border-white/5 rounded-none shadow-xl">
+                            <div class="stat p-6">
+                                <div class="stat-title text-[10px] uppercase tracking-widest text-primary font-bold">Workflow</div>
+                                <div class="stat-value text-2xl text-white mt-2">End-to-End</div>
+                                <div class="stat-desc text-zinc-500 mt-1 italic">Scripting to Post-Prod.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 pt-6">
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-4 py-2 bg-zinc-900 border border-white/10 text-zinc-400">Wildlife Doc</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-4 py-2 bg-zinc-900 border border-white/10 text-zinc-400">Cultural Folk Narratives</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-4 py-2 bg-zinc-900 border border-white/10 text-zinc-400">Travel Storytelling</span>
+                    </div>
                 </div>
             </div>
-            <div class="group relative overflow-hidden rounded-xl bg-slate-800 aspect-video" data-aos="zoom-in" data-aos-delay="200">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10 opacity-80"></div>
-                <div class="absolute bottom-4 left-4 z-20">
-                    <h5 class="font-bold">Nature Series</h5>
-                    <p class="text-xs text-slate-300">Wildlife Photography</p>
+
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="section-padding relative">
+    <div class="container mx-auto max-w-7xl">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div data-aos="fade-right">
+                <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Selected Works</p>
+                <h2 class="serif text-6xl md:text-8xl italic text-white leading-none">The Archives.</h2>
+            </div>
+            <div class="flex gap-4" data-aos="fade-left">
+                <div class="badge badge-outline rounded-none p-4 opacity-50 uppercase text-[9px] tracking-widest">Film</div>
+                <div class="badge badge-outline rounded-none p-4 opacity-50 uppercase text-[9px] tracking-widest">Radio</div>
+                <div class="badge badge-outline rounded-none p-4 opacity-50 uppercase text-[9px] tracking-widest">Doc</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <div class="group cursor-pointer" data-aos="fade-up">
+                <div class="relative aspect-[21/9] bg-zinc-900 border border-white/5 overflow-hidden mb-6">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 flex items-center justify-center z-10">
+                        <div class="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /></svg>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-800 uppercase font-black text-4xl italic select-none">Short Film</div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">KHEL</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">Videography • Direction • Post-Production</p>
+                    </div>
+                    <span class="serif text-xl italic text-zinc-600">2024</span>
+                </div>
+                <p class="mt-4 text-sm text-zinc-400 leading-relaxed font-light">
+                    Directed and shot an academic short film (10 mins). Managed the end-to-end workflow from conceptualizing the script to final color grading.
+                </p>
+            </div>
+
+            <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative aspect-[21/9] bg-zinc-900 border border-white/5 overflow-hidden mb-6">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 flex items-center justify-center z-10">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white opacity-40 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-800 uppercase font-black text-4xl italic select-none">Radio Podcast</div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors uppercase">Itihas Express</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">Production • Sound Design • Research</p>
+                    </div>
+                    <span class="serif text-xl italic text-zinc-600">2025</span>
+                </div>
+                <p class="mt-4 text-sm text-zinc-400 leading-relaxed font-light">
+                    An immersive audio journey into Pavagadh Archaeological Park, Gujarat. Focusing on historical narratives through layered soundscapes.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+            <div class="p-8 bg-zinc-950 border border-white/5 hover:border-primary/30 transition-all group" data-aos="fade-up">
+                <h4 class="text-white font-bold mb-2 group-hover:text-primary transition-colors uppercase text-sm">Gauri Shankar Mandir</h4>
+                <p class="text-[9px] uppercase tracking-widest text-zinc-600 mb-4 italic">TV News Package</p>
+                <p class="text-xs text-zinc-400 leading-relaxed">Broadcast journalism production highlighting religious and cultural heritage in Delhi.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-white/5 hover:border-primary/30 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-white font-bold mb-2 group-hover:text-primary transition-colors uppercase text-sm">Stray Dog Welfare</h4>
+                <p class="text-[9px] uppercase tracking-widest text-zinc-600 mb-4 italic">Development Communication</p>
+                <p class="text-xs text-zinc-400 leading-relaxed">A comprehensive campaign including PSA content, awareness kits, and community surveys.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-950 border border-white/5 hover:border-primary/30 transition-all group" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-white font-bold mb-2 group-hover:text-primary transition-colors uppercase text-sm">Shiv Naresh</h4>
+                <p class="text-[9px] uppercase tracking-widest text-zinc-600 mb-4 italic">Brand Repositioning</p>
+                <p class="text-xs text-zinc-400 leading-relaxed">SWOT analysis and research-led strategy to modernize a legacy sports brand's identity.</p>
+            </div>
+        </div>
+
+        <div class="mt-20 flex justify-center" data-aos="fade-up">
+            <div class="stats bg-zinc-900 border border-white/10 rounded-none w-full max-w-2xl">
+                <div class="stat p-8">
+                    <div class="stat-title uppercase text-[10px] tracking-widest">Special Project</div>
+                    <div class="stat-value text-2xl serif italic py-2">Butterfly Transformation</div>
+                    <div class="stat-desc text-zinc-500 font-light">A photographic documentation series from caterpillar stage to metamorphosis.</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="py-12 border-t border-slate-900 text-center">
-        <p class="text-slate-500 text-sm">© 2024 Akanksha Priya | Built with Code & Vision</p>
-    </footer>
+<section id="experience" class="section-padding bg-zinc-950 relative">
+    <div class="container mx-auto max-w-5xl">
+        
+        <div class="mb-20" data-aos="fade-right">
+            <h2 class="serif text-6xl md:text-8xl italic text-white leading-none">Field Logs.</h2>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mt-4">Professional Experience 2024 — 2025</p>
+        </div>
+
+        <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+            
+            <li data-aos="fade-up">
+                <div class="timeline-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="timeline-start md:text-end mb-10">
+                    <time class="mono text-[10px] opacity-50 tracking-widest uppercase">June — July 2025</time>
+                    <div class="text-xl font-black text-white mt-1">New Delhi Nature Society</div>
+                    <div class="text-primary text-xs font-bold italic mb-4">Media & Documentation Intern</div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-md md:ml-auto">
+                        Pioneered visual narratives for environmental conservation. Created short-form videos and podcasts to drive public outreach and documented on-ground ecological initiatives.
+                    </p>
+                    <div class="flex gap-2 mt-4 md:justify-end">
+                        <div class="badge badge-sm badge-outline text-[9px] rounded-none opacity-50">Podcast</div>
+                        <div class="badge badge-sm badge-outline text-[9px] rounded-none opacity-50">Conservation</div>
+                    </div>
+                </div>
+                <hr class="bg-primary/30"/>
+            </li>
+
+            <li data-aos="fade-up">
+                <hr class="bg-primary/30"/>
+                <div class="timeline-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="timeline-end mb-10">
+                    <time class="mono text-[10px] opacity-50 tracking-widest uppercase">Feb — March 2024</time>
+                    <div class="text-xl font-black text-white mt-1 uppercase tracking-tight">Samarth Bharat Project</div>
+                    <div class="text-primary text-xs font-bold italic mb-4">Field Photography Contributor</div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-md">
+                        Documented social development work at project sites. My photographs served as primary visual evidence for official annual reports and organizational documentation.
+                    </p>
+                    <div class="flex gap-2 mt-4">
+                        <div class="badge badge-sm badge-outline text-[9px] rounded-none opacity-50">Field Photo</div>
+                        <div class="badge badge-sm badge-outline text-[9px] rounded-none opacity-50">Social Dev</div>
+                    </div>
+                </div>
+                <hr class="bg-primary/30"/>
+            </li>
+
+            <li data-aos="fade-up">
+                <hr class="bg-primary/30"/>
+                <div class="timeline-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="timeline-start md:text-end mb-10">
+                    <time class="mono text-[10px] opacity-50 tracking-widest uppercase">July 2025</time>
+                    <div class="text-xl font-black text-white mt-1">A.P. Khanna Textiles</div>
+                    <div class="text-primary text-xs font-bold italic mb-4">Media & Content Intern</div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-md md:ml-auto">
+                        Directed short videos and voiceovers to refine digital outreach. Focused on building a cohesive visual identity for the brand's online presence.
+                    </p>
+                </div>
+                <hr class="bg-primary/30"/>
+            </li>
+
+            <li data-aos="fade-up">
+                <hr class="bg-primary/30"/>
+                <div class="timeline-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-primary"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="timeline-end mb-10">
+                    <time class="mono text-[10px] opacity-50 tracking-widest uppercase">July — Nov 2025</time>
+                    <div class="text-xl font-black text-white mt-1 uppercase tracking-tight">Budding Medicoz & Mariner</div>
+                    <div class="text-primary text-xs font-bold italic mb-4">Presentation Design Intern</div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-md">
+                        Transformed complex raw academic data into visually structured learning resources for medical and maritime students.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="education" class="section-padding relative overflow-hidden">
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none">
+        <h2 class="text-[30vw] font-bold uppercase leading-none">CINE</h2>
+    </div>
+
+    <div class="container mx-auto max-w-7xl relative z-10">
+        <div class="grid lg:grid-cols-2 gap-20">
+            
+            <div data-aos="fade-right">
+                <div class="mb-12">
+                    <h2 class="serif text-5xl md:text-7xl italic text-white leading-none">The Foundation.</h2>
+                    <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mt-4">Academic Credentials</p>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l border-white/10 group">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 bg-primary group-hover:scale-150 transition-transform"></div>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500">2023 — Present</span>
+                        <h3 class="text-2xl font-bold text-white mt-2 leading-tight">B.A. (Hons) Multimedia & Mass Communication</h3>
+                        <p class="text-primary italic text-sm mt-1 font-medium">Indraprastha College for Women, University of Delhi</p>
+                        <div class="mt-4 flex items-baseline gap-2">
+                            <span class="text-4xl font-black text-white">8.59</span>
+                            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest leading-none">Current CGPA</span>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-white/10 group">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 bg-zinc-700 group-hover:bg-primary transition-colors"></div>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500">Class XII • 2023</span>
+                        <h3 class="text-xl font-bold text-white mt-1">CBSE Science</h3>
+                        <p class="text-zinc-500 text-sm">Mother Teresa Academy, Darbhanga</p>
+                        <p class="text-xl font-bold text-zinc-300 mt-2">75%</p>
+                    </div>
+
+                    <div class="relative pl-8 border-l border-white/10 group">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 bg-zinc-700 group-hover:bg-primary transition-colors"></div>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500">Class X • 2021</span>
+                        <h3 class="text-xl font-bold text-white mt-1">CBSE Secondary</h3>
+                        <p class="text-zinc-500 text-sm">DAV Public School, Darbhanga</p>
+                        <p class="text-xl font-bold text-zinc-300 mt-2">90%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left">
+                <div class="mb-12">
+                    <h2 class="serif text-5xl md:text-7xl italic text-white leading-none">The Arsenal.</h2>
+                    <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mt-4">Technical Stack & Workflow</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-500 mb-4">Post-Production</p>
+                        <div class="space-y-4">
+                            <div class="w-full">
+                                <div class="flex justify-between mb-1 text-xs uppercase tracking-widest">
+                                    <span class="text-zinc-300">Adobe Premiere Pro</span>
+                                    <span class="text-primary">90%</span>
+                                </div>
+                                <progress class="progress progress-primary w-full h-[2px] bg-zinc-800" value="90" max="100"></progress>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex justify-between mb-1 text-xs uppercase tracking-widest">
+                                    <span class="text-zinc-300">Audition / Audacity</span>
+                                    <span class="text-primary">85%</span>
+                                </div>
+                                <progress class="progress progress-primary w-full h-[2px] bg-zinc-800" value="85" max="100"></progress>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex justify-between mb-1 text-xs uppercase tracking-widest">
+                                    <span class="text-zinc-300">Basic After Effects & Photoshop</span>
+                                    <span class="text-primary">65%</span>
+                                </div>
+                                <progress class="progress progress-primary w-full h-[2px] bg-zinc-800" value="65" max="100"></progress>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-500 mb-4">Core Competencies</p>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="badge badge-lg border-white/10 bg-transparent text-white rounded-none py-6 px-6 text-[11px] uppercase tracking-widest">Field Videography</div>
+                            <div class="badge badge-lg border-white/10 bg-transparent text-white rounded-none py-6 px-6 text-[11px] uppercase tracking-widest">Visual Storytelling</div>
+                            <div class="badge badge-lg border-white/10 bg-transparent text-white rounded-none py-6 px-6 text-[11px] uppercase tracking-widest">Scriptwriting</div>
+                            <div class="badge badge-lg border-white/10 bg-transparent text-white rounded-none py-6 px-6 text-[11px] uppercase tracking-widest">Observational Filming</div>
+                            <div class="badge badge-lg border-white/10 bg-transparent text-white rounded-none py-6 px-6 text-[11px] uppercase tracking-widest">Reporting Visuals</div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-500 mb-2">Communication</p>
+                        <p class="text-sm italic text-zinc-400">English and Hindi — Bilingual Proficiency</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="awards" class="section-padding bg-zinc-950 relative">
+    <div class="container mx-auto max-w-7xl">
+        
+        <div class="grid lg:grid-cols-12 gap-16">
+            
+            <div class="lg:col-span-7">
+                <div class="mb-12" data-aos="fade-right">
+                    <h2 class="serif text-5xl md:text-7xl italic text-white leading-none">Impact & <br>Recognition.</h2>
+                    <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mt-4">Merits 2024 — 2025</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="p-6 bg-zinc-900 border border-white/5 group hover:border-primary/50 transition-all" data-aos="fade-up">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-primary">Photography</span>
+                                <h3 class="text-xl font-bold text-white mt-1 uppercase italic tracking-tight">Triple Crown Recognition</h3>
+                                <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+                                    <li class="flex gap-3"><span class="text-primary">01.</span> Winner - Panchtatva Eco-Club (Zakir Husain College)</li>
+                                    <li class="flex gap-3"><span class="text-primary">02.</span> Winner - Campus Biodiversity Contest (IPCW x WWF)</li>
+                                    <li class="flex gap-3"><span class="text-primary">03.</span> 3rd Prize - On-the-spot Photography (Shruti 2025)</li>
+                                </ul>
+                            </div>
+                            <div class="text-zinc-800 group-hover:text-primary/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-zinc-900 border border-white/5 group hover:border-primary/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-primary">Leadership</span>
+                                <h3 class="text-xl font-bold text-white mt-1 uppercase italic tracking-tight">Film Festival Management</h3>
+                                <p class="text-sm text-zinc-400 mt-3 leading-relaxed">
+                                    Organizing Committee Member for <span class="text-white">Lights Camera Action (LCA)</span> & Volunteer for <span class="text-white">Pariprekshya International Film Festival</span>. 
+                                    Specialized in BTS documentation and guest media production.
+                                </p>
+                            </div>
+                            <div class="text-zinc-800 group-hover:text-primary/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5" data-aos="fade-left">
+                <div class="mb-12">
+                    <h2 class="serif text-4xl md:text-5xl italic text-white leading-none">The <br>Credentials.</h2>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="collapse collapse-arrow bg-zinc-900 border border-white/5 rounded-none">
+                        <input type="radio" name="my-accordion-2" checked="checked" /> 
+                        <div class="collapse-title text-sm font-bold uppercase tracking-widest text-zinc-300">
+                            Documentary Filmmaking
+                        </div>
+                        <div class="collapse-content"> 
+                            <p class="text-xs text-zinc-500 leading-relaxed italic">
+                                Masterclass on Documentary Filmmaking for Social Change by <span class="text-primary">Chris Schueler</span>. Focus on impact-driven storytelling.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-zinc-900 border border-white/5 rounded-none">
+                        <input type="radio" name="my-accordion-2" /> 
+                        <div class="collapse-title text-sm font-bold uppercase tracking-widest text-zinc-300">
+                            Adobe Premiere Pro Masterclass
+                        </div>
+                        <div class="collapse-content"> 
+                            <p class="text-xs text-zinc-500 italic">Certified by Phil Ebiner (Udemy). Advanced post-production workflows and color grading.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-zinc-900 border border-white/5 rounded-none">
+                        <input type="radio" name="my-accordion-2" /> 
+                        <div class="collapse-title text-sm font-bold uppercase tracking-widest text-zinc-300">
+                            AI & Digital Readiness
+                        </div>
+                        <div class="collapse-content"> 
+                            <p class="text-xs text-zinc-500 italic">ADiRA by AVPN & DataLeads, and Google AI Essentials. Focused on modern digital advancement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-8 border border-primary/20 bg-primary/5">
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-primary mb-4">Interests</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-[10px] uppercase text-zinc-400">Wildlife Doc</div>
+                        <div class="text-[10px] uppercase text-zinc-400">Folk Narratives</div>
+                        <div class="text-[10px] uppercase text-zinc-400">Travel Visuals</div>
+                        <div class="text-[10px] uppercase text-zinc-400">Cultural Echoes</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer id="contact" class="section-padding border-t border-white/5 bg-black relative overflow-hidden">
+    
+    <div class="absolute -bottom-10 left-0 w-full opacity-[0.03] pointer-events-none select-none">
+        <h2 class="text-[20vw] font-bold uppercase leading-none text-center">CONTACT</h2>
+    </div>
+
+    <div class="container mx-auto max-w-7xl relative z-10">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            
+            <div data-aos="fade-right">
+                <p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-6">Available for Projects</p>
+                <h2 class="serif text-6xl md:text-8xl italic text-white leading-[0.9] mb-10">
+                    Let’s frame the <br>next story.
+                </h2>
+                
+                <a href="mailto:akankshap.mmmc.2023.ipcw@gmail.com" class="group inline-flex items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </div>
+                    <span class="text-xl md:text-2xl font-light text-zinc-300 border-b border-white/10 group-hover:border-primary transition-all">Get in touch</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12" data-aos="fade-left">
+                <div>
+                    <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-3">Base</p>
+                    <p class="text-white font-medium uppercase text-sm leading-relaxed">
+                        New Delhi – 110054 <br> India
+                    </p>
+                </div>
+
+                <div>
+                    <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-3">Digital Garden</p>
+                    <a href="https://github.com/akp2305" target="_blank" class="text-white font-medium hover:text-primary transition-colors block mb-2">GitHub /akp2305</a>
+                    <a href="mailto:akankshap.mmmc.2023.ipcw@gmail.com" class="text-zinc-400 text-xs truncate block hover:text-white transition-colors">akankshap.mmmc.2023.ipcw@gmail.com</a>
+                </div>
+
+                <div>
+                    <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-3">Direct Line</p>
+                    <p class="text-white font-medium">+91 8540916141</p>
+                </div>
+
+                <div>
+                    <p class="text-[9px] uppercase tracking-widest text-zinc-500 mb-3">Availability</p>
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        <span class="text-[10px] uppercase font-bold text-zinc-300">Open for Internships</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-600">
+                &copy; 2026 Akanksha Priya • Multimedia & Mass Comm
+            </p>
+            <div class="flex gap-8 text-[9px] uppercase tracking-widest font-bold text-zinc-500">
+                <a href="#hero" class="hover:text-white transition-colors">Top</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // Initialize Animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth Navbar Shrink on Scroll
+        window.onscroll = function() {
+            const nav = document.querySelector('header');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        };
     </script>
 </body>
 </html>
